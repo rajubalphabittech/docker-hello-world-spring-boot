@@ -7,7 +7,7 @@ node {
 	environment {
 		imageName = "hello-world-java"
 		registryCredentials = "nexus"
-		NexusDockerRegistryUrl = "10.171.14.84:8081"
+		NexusDockerRegistryUrl = "http://10.171.14.84:8081/repository/jenkinstest/"
 		dockerImage = ''
 	}
 
