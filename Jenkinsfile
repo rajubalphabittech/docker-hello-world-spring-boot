@@ -2,6 +2,14 @@ node {
     // reference to maven
     // ** NOTE: This 'maven-3.6.1' Maven tool must be configured in the Jenkins Global Configuration.   
     def mvnHome = tool 'maven-3.8.1'
+	
+    // environemtn variables
+	environment {
+		imageName = "hello-world-java"
+		registryCredentials = "nexus"
+		registry = "10.171.14.84:8081"
+		dockerImage = ''
+	}
 
     // holds reference to docker image
     def dockerImage
@@ -51,9 +59,10 @@ node {
       // deploy docker image to nexus
 
       echo "Docker Image Tag Name: ${dockerImageTag}"
+      dockerImage = docker.build imageName
 
-      sh "docker login -u admin -p admin123 ${dockerRepoUrl}"
-      sh "docker tag ${dockerImageName} ${dockerImageTag}"
-      sh "docker push ${dockerImageTag}"
+      //sh "docker login -u admin -p admin123 ${dockerRepoUrl}"
+      //sh "docker tag ${dockerImageName} ${dockerImageTag}"
+      //sh "docker push ${dockerImageTag}"
     }
 }
