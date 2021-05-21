@@ -7,7 +7,7 @@ node {
 	environment {
 		imageName = "hello-world-java"
 		registryCredentials = "nexus"
-		registry = "10.171.14.84:8081"
+		NexusDockerRegistryUrl = "10.171.14.84:8081"
 		dockerImage = ''
 	}
 
@@ -60,8 +60,12 @@ node {
 
       echo "Docker Image Tag Name: ${dockerImageTag}"
       //dockerImage = docker.build imageName
-	    docker.withRegistry( 'http://'+registry, registryCredentails ){
-            dockerImage.push('latest')
+	//    docker.withRegistry( 'http://'+registry, registryCredentails ){
+      //      dockerImage.push('latest')
+      sh 'docker login -u admin -p RFVbgt1@ NexusDockerRegistryUrl'
+      sh 'docker push NexusDockerRegistryUrl/Imagename}'
+      //sh 'docker rmi $(docker images --filter=reference="NexusDockerRegistryUrl/ImageName*" -q)'
+      //sh 'docker logout NexusDockerRegistryUrl'
 	    }
     
 
