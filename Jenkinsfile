@@ -62,8 +62,8 @@ node {
       //dockerImage = docker.build imageName
 	//    docker.withRegistry( 'http://'+registry, registryCredentails ){
       //      dockerImage.push('latest')
-      sh 'docker login -u admin -p RFVbgt1@ http://10.171.14.84:8085/repository/jenkinstest/'
-      sh 'docker push NexusDockerRegistryUrl/Imagename}'
+      sh 'sudo docker login -u admin -p RFVbgt1@ http://10.171.14.84:8085/repository/jenkinstest/'
+      sh 'sudo docker push NexusDockerRegistryUrl/Imagename}'
       //sh 'docker rmi $(docker images --filter=reference="NexusDockerRegistryUrl/ImageName*" -q)'
       //sh 'docker logout NexusDockerRegistryUrl'
 	    //}
