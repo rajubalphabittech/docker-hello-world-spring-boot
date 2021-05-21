@@ -59,7 +59,11 @@ node {
       // deploy docker image to nexus
 
       echo "Docker Image Tag Name: ${dockerImageTag}"
-      dockerImage = docker.build imageName
+      //dockerImage = docker.build imageName
+	    docker.withRegistry('http://'+registry, registryCredentails ){
+            dockerImage.push('latest')
+	    }
+    }
 
       //sh "docker login -u admin -p admin123 ${dockerRepoUrl}"
       //sh "docker tag ${dockerImageName} ${dockerImageTag}"
