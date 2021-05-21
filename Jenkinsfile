@@ -60,7 +60,7 @@ node {
 
       echo "Docker Image Tag Name: ${dockerImageTag}"
       //dockerImage = docker.build imageName
-	    docker.withRegistry('http://'+registry, registryCredentails ){
+	    docker.withRegistry( 'http://'+registry, registryCredentails ){
             dockerImage.push('latest')
 	    }
     
