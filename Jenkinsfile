@@ -63,7 +63,7 @@ node {
 	    docker.withRegistry('http://'+registry, registryCredentails ){
             dockerImage.push('latest')
 	    }
-    }
+    
 
       //sh "docker login -u admin -p admin123 ${dockerRepoUrl}"
       //sh "docker tag ${dockerImageName} ${dockerImageTag}"
