@@ -62,7 +62,7 @@ node {
       //dockerImage = docker.build imageName
 	//    docker.withRegistry( 'http://'+registry, registryCredentails ){
       //      dockerImage.push('latest')
-      sh 'sudo docker login -u admin -p RFVbgt1@ http://10.171.14.84:8086/repository/hello-world-java:latest/'
+      sh 'sudo docker login -u admin http://10.171.14.84:8086/repository/hello-world-java:latest/'
       sh 'sudo docker push 10.171.14.84:8086/repository/hello-world-java:latest '
       //sh 'docker rmi $(docker images --filter=reference="NexusDockerRegistryUrl/ImageName*" -q)'
       //sh 'docker logout NexusDockerRegistryUrl'
