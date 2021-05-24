@@ -73,7 +73,7 @@ node {
       //sh 'sudo docker login -u admin -p RFVbgt1@ http://10.171.14.84:8086/repository/hello-world-java:latest/'
       //sh 'sudo docker pull 10.171.14.84:8086/repository/hello-world-java:latest '
 	    kubernetesDeploy{
-		    configs: "kubedeployment.yml",
+		    configs: "kubedeploy.yml",
 	            kubeconfigId: "kubernetes_cluster_config",
 	            enableConfigSubtitution: true
 	    }
