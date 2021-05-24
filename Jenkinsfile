@@ -76,7 +76,7 @@ node {
 		    configs: "kubedeploy.yml",
 	            kubeconfigId: "kubernetes_cluster_config",
 	            enableConfigSubtitution: true
-	    }
+	    }}
 	    
       //sh 'docker rmi $(docker images --filter=reference="NexusDockerRegistryUrl/ImageName*" -q)'
       //sh 'docker logout NexusDockerRegistryUrl'
