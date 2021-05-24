@@ -1,34 +1,32 @@
----
-# Replication Controller for springapp
-apiVersion: v1
-kind: Deployment 
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: spring-boot-controller
+  name: springboot
 spec:
-  replicas: 1
   selector:
-    app: springboot
+    matchLabels:
+      app: springboot
   template:
     metadata:
       labels:
         app: springboot
     spec:
       containers:
-      - image: 10.171.14.84:8086/repository/hello-world-java:latest
-        name: springboot
+      - name: springboot
+        image: 10.171.14.84:8086/repository/hello-world-java:latest
         ports:
-        - containerPort: 8080  
-
+        - name: http
+          containerPort: 8080
 ---
-# Node Port Service For SpringApp
 apiVersion: v1
 kind: Service
 metadata:
-  name: springboot
+  name: springboot-svc
 spec:
   type: NodePort
-  ports:
-    - port: 8080
-      targetPort: 8080
   selector:
     app: springboot
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
