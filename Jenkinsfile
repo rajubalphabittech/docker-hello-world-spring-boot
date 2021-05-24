@@ -69,14 +69,14 @@ node {
       //sh 'docker logout NexusDockerRegistryUrl'
 	    //}
     stage('Deploy k8'){
-      
+      sh 'sudo kubectl apply -f kubedeploy.yml'
       //sh 'sudo docker login -u admin -p RFVbgt1@ http://10.171.14.84:8086/repository/hello-world-java:latest/'
       //sh 'sudo docker pull 10.171.14.84:8086/repository/hello-world-java:latest '
-	    kubernetesDeploy{
-		    configs: "kubedeploy.yml",
-	            kubeconfigId: "kubernetes_cluster_config",
-	            enableConfigSubtitution: true
-	    }}
+	   // kubernetesDeploy{
+	//	    configs: "kubedeploy.yml",
+	 //           kubeconfigId: "kubernetes_cluster_config",
+	 //           enableConfigSubtitution: true
+	    }
 	    
       //sh 'docker rmi $(docker images --filter=reference="NexusDockerRegistryUrl/ImageName*" -q)'
       //sh 'docker logout NexusDockerRegistryUrl'
